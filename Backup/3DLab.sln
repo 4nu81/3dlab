@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3DLab", "3DLab.csproj", "{A020F060-6139-4BCD-98BB-854B61A937CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A020F060-6139-4BCD-98BB-854B61A937CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A020F060-6139-4BCD-98BB-854B61A937CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A020F060-6139-4BCD-98BB-854B61A937CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A020F060-6139-4BCD-98BB-854B61A937CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

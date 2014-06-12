@@ -1,0 +1,541 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GL_Depth</name>
+    </assembly>
+    <members>
+        <member name="T:GL_Depth.Mainform">
+            <summary>
+            Hauptformular der Anwendung. Es enthält die Zeichenoberfläche für das OpenGL
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Mainform.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Mainform.CenterMouse">
+            <summary>
+            Moves Mousecursor to center
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Mainform.OnPaintCanvas(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            If Canvas is painted
+            </summary>        
+        </member>
+        <member name="M:GL_Depth.Mainform.OnResizeCanvas(System.Object,System.EventArgs)">
+            <summary>
+            If Canvas is resizing
+            </summary>        
+        </member>
+        <member name="M:GL_Depth.Mainform.OnKeyDownCanvas(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            If Key is down on Canvas
+            </summary>        
+        </member>
+        <member name="M:GL_Depth.Mainform.OpenGL_Start">
+            <summary>
+            The Thread for Simulation starts
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Mainform.InitLight">
+            <summary>
+            Lightszene initialization
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Mainform.Tick">
+            <summary>
+            Simulation of Figures
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Mainform.FullScreen">
+            <summary>
+            inits Fullscreen
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Mainform.RepaintTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            RepaintTimer fires TickEvent
+            </summary>        
+        </member>
+        <member name="M:GL_Depth.Mainform.MouseActionWheel(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mousewheel was used
+            </summary>        
+        </member>
+        <member name="M:GL_Depth.Mainform.MouseActionDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mousekey was pressed down
+            </summary>        
+        </member>
+        <member name="M:GL_Depth.Mainform.MouseActionUp(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mousekey was lift up
+            </summary>        
+        </member>
+        <member name="F:GL_Depth.Mainform.components">
+            <summary>
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Mainform.Dispose(System.Boolean)">
+            <summary>
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:GL_Depth.Mainform.InitializeComponent">
+            <summary>
+            Erforderliche Methode für die Designerunterstützung.
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="T:GL_Depth.GraphicEngine">
+            <summary>
+            Die Grafikengine
+            </summary>
+        </member>
+        <member name="M:GL_Depth.GraphicEngine.InitGl">
+            <summary>
+            Erstinizialisierung
+            GLControl.InitialiseContext muss auserhalb inizialisiert werden
+            </summary>
+        </member>
+        <member name="M:GL_Depth.GraphicEngine.ReInitGl(System.Int32,System.Int32)">
+            <summary>
+            GL reinizialisieren (zb nach resize)
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:GL_Depth.GraphicEngine.DrawDice(System.Single,System.Single,System.Single)">
+            <summary>
+            Wuerfel zeichnen
+            </summary>
+        </member>
+        <member name="M:GL_Depth.GraphicEngine.DrawPlate(System.Single,System.Single,System.Single)">
+            <summary>
+            Platte zeichnen
+            </summary>
+        </member>
+        <member name="M:GL_Depth.GraphicEngine.BeginPaint">
+            <summary>
+            Wird am anfang der Paintphase aufgerufen
+            </summary>
+        </member>
+        <member name="M:GL_Depth.GraphicEngine.Push">
+            <summary>
+            Gl.glPushMatrix
+            </summary>
+        </member>
+        <member name="M:GL_Depth.GraphicEngine.Pop">
+            <summary>
+            Gl.glPopMatrix
+            </summary>
+        </member>
+        <member name="M:GL_Depth.IFigures.Draw">
+            <summary>
+            Zeichnet das Objekt. Das Objekt muss alleine wissen, wie es gezeichnet wird.
+            'using Tao.OpenGl' muss verwendet werden;
+            </summary>
+        </member>
+        <member name="M:GL_Depth.IFigures.Init">
+            <summary>
+            Initialisiert das zu zeichnende Objekt
+            </summary>
+        </member>
+        <member name="M:GL_Depth.IFigures.Tick">
+            <summary>
+            diese Methode ist für Berechnungen neuer Positionen zuständig.
+            </summary>
+        </member>
+        <member name="M:GL_Depth.IFigures.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Reicht die KeyEvents and die Objekte weiter, die diese dann auswerten können.
+            </summary>
+            <param name="e">Das Key Event enthält die gedrückte Taste</param>
+        </member>
+        <member name="M:GL_Depth.IFigures.OnShutdown">
+            <summary>
+            Falls Threads oder dergleichen im Objekt laufen müssen diese beendet werden.
+            </summary>
+        </member>
+        <member name="M:GL_Depth.IMouseControlled.MouseButton(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mousebutton geklickt
+            </summary>
+            <param name="e">Das Event enthält die gedrückte Taste</param>
+        </member>
+        <member name="M:GL_Depth.IMouseControlled.updateObject">
+            <summary>
+            aktualisieren nach MouseEvent
+            </summary>
+        </member>
+        <member name="P:GL_Depth.IMouseControlled.mx">
+            <summary>
+            Bewegung der Maus in X-Richtung
+            </summary>
+        </member>
+        <member name="P:GL_Depth.IMouseControlled.my">
+            <summary>
+            Bewegung der Maus in Y-Richtung
+            </summary>
+        </member>
+        <member name="T:GL_Depth.BaseFigure">
+            <summary>
+            Basisklasse für alle Figuren, die Grundlegendes Verhalten steuert.
+            </summary>
+        </member>
+        <member name="M:GL_Depth.BaseFigure.InternalDraw">
+            <summary>
+            Interne Funktion zum Zeichnen des Objektes
+            </summary>
+        </member>
+        <member name="M:GL_Depth.BaseFigure.InternalTick">
+            <summary>
+            Interne Funktion für den Tick des Objektes
+            </summary>
+        </member>
+        <member name="M:GL_Depth.BaseFigure.Init">
+            <summary>
+            Jedes Objekt muss selbst wissen, wie es initialisiert wird.
+            </summary>
+        </member>
+        <member name="M:GL_Depth.BaseFigure.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Reicht die KeyEvents and die Objekte weiter, die diese dann auswerten können.
+            </summary>
+            <param name="e">Das Key Event enthält die gedrückte Taste</param>
+        </member>
+        <member name="M:GL_Depth.BaseFigure.Draw">
+            <summary>
+            Soll bei Visible die Interne Drawfunktion aufrufen.
+            </summary>
+        </member>
+        <member name="M:GL_Depth.BaseFigure.Tick">
+            <summary>
+            Soll bei Enabled die Interne Tickfunktion aufrufen.
+            </summary>
+        </member>
+        <member name="M:GL_Depth.BaseFigure.OnShutdown">
+            <summary>
+            Wird beim Beenden der Mainform aufgerufen.
+            </summary>
+        </member>
+        <member name="P:GL_Depth.BaseFigure.Cam">
+            <summary>
+            Somit kann die Klasse bei Bedarf auf die Kamera zugreifen.
+            </summary>
+        </member>
+        <member name="P:GL_Depth.BaseFigure.Enabled">
+            <summary>
+            Schalter für die Simulation des Objektes
+            </summary>
+        </member>
+        <member name="P:GL_Depth.BaseFigure.Visible">
+            <summary>
+            Schalter für die Sichtbarkeit des Objektes
+            </summary>
+        </member>
+        <member name="T:GL_Depth.Camera">
+            <summary>
+            Das Kameraobjekt verwaltet den Blickwinkel und die Position des "Betrachters" 
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Camera.X">
+            <summary>
+            Die X-Komponente
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Camera.Y">
+            <summary>
+            Die Y-Komponente
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Camera.Z">
+            <summary>
+            Die Z-Komponente
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Camera.angleZ">
+            <summary>
+            Der Blickwinkel auf der X-Y-Ebene
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Camera.angleX">
+            <summary>
+            Der Blickwinkel in die Höhe
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Camera.SetNewCameraPosition(System.Double,System.Double)">
+            <summary>
+            Der Blickwinkel wird um mx und mz Grad verändert.
+            </summary>
+            <param name="mz">Blickwinkel auf X-Y-Ebene wird um mz Grad verändert.</param>
+            <param name="mx">Blickwinkel nach "Oben" wird um mx Grad verändert.</param>
+        </member>
+        <member name="M:GL_Depth.Camera.SetCamera">
+            <summary>
+            Cameraposition wird im OpenGl positioniert
+            </summary>
+        </member>
+        <member name="T:GL_Depth.Skybox">
+            <summary>
+            Die Skybox umgibt die Kamera mit einer nicht Z-Gepufferten Textur.
+            </summary>
+        </member>
+        <member name="T:GL_Depth.Shot">
+            <summary>
+            Schüsse die sich linear durch den Raum bewegen
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Shot.Move">
+            <summary>
+            Bewegung des Schusses, abhängig vom _Speed
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Shot.IsOld">
+            <summary>
+            Prüft Abstand des Schusses zu seiner Quelle. bei > 500 wird shot als Old betrachtet.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GL_Depth.Shots">
+            <summary>
+            Verwaltungsklasse für die Schüsse
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Shots._Shots">
+             Shots (to be outsourced)       
+        </member>
+        <member name="M:GL_Depth.Program.Main">
+            <summary>
+            Der Haupteinstiegspunkt für die Anwendung.
+            </summary>
+        </member>
+        <member name="T:GL_Depth.StaticVars">
+            <summary>
+            Hält Globale Settings für die Anwendung
+            </summary>
+        </member>
+        <member name="M:GL_Depth.StaticVars.IncLinewidth">
+            <summary>
+            erhöht die Liniendicke beim zeichnen
+            </summary>
+        </member>
+        <member name="M:GL_Depth.StaticVars.DecLinewidth">
+            <summary>
+            verringert die Liniendicke beim zeichnen
+            </summary>
+        </member>
+        <member name="P:GL_Depth.StaticVars.Brightness">
+            <summary>
+            Kann für die Helligkeit benutzt werden.
+            </summary>
+        </member>
+        <member name="P:GL_Depth.StaticVars.Linewidth">
+            <summary>
+            Kann für die Linienstärke benutzt werden.
+            </summary>
+        </member>
+        <member name="T:GL_Depth.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:GL_Depth.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:GL_Depth.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:GL_Depth.Planet">
+            <summary>
+            Ein Planet kreist um seine Sonne.
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Planet.trace">
+            <summary>
+            Spur des Planeten
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Planet.PlanetMove">
+            <summary>
+            Thread für Planetenbewegung
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Planet.MM">
+            <summary>
+            Member für Matrixoperationen
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Planet.showTrace">
+            <summary>
+            Soll Planetenspur angezeigt werden?
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Planet._Dir">
+            <summary>
+            Richtung des Planeten
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Planet.InternalDraw">
+            <summary>
+            Interne Drawfunktion
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Planet.Init">
+            <summary>
+            Initialisiert den Planeten und seine Position und Laufbahn
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Planet.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Wird aufgerufen sobald eine Taste gedrückt wurde.
+            </summary>        
+        </member>
+        <member name="M:GL_Depth.Planet.InternalTick">
+            <summary>
+            Da in Thread ausgelagert ist hier nichts nötig.
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Planet.#ctor">
+            <summary>
+            Constructor erzeugt auch Threadobjekt.
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Planet.OnShutdown">
+            <summary>
+            PlanetenBewegungsThread muss angehalten werden beim beenden.
+            </summary>
+        </member>
+        <member name="P:GL_Depth.Planet.Enabled">
+            <summary>
+            musste überschrieben werden, da es zum starten des Thread dienen soll.
+            </summary>
+        </member>
+        <member name="T:GL_Depth.Point3">
+            <summary>
+            Eine Punktklasse.
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Point3.x">
+            <summary>
+            Die X-Komponente
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Point3.y">
+            <summary>
+            Die Y-Komponente
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Point3.z">
+            <summary>
+            Die Z-Komponente
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Point3.assign(GL_Depth.Point3)">
+            <summary>
+            Assigns Values of p1 to this by leaving adresses as they are
+            </summary>
+            <param name="p1">Point3 to assign values to this</param>
+        </member>
+        <member name="M:GL_Depth.Point3.op_Addition(GL_Depth.Point3,GL_Depth.Point3)">
+            <summary>
+            sum up the values of p1 and p1
+            </summary>        
+        </member>
+        <member name="M:GL_Depth.Point3.op_Subtraction(GL_Depth.Point3,GL_Depth.Point3)">
+            <summary>
+            subtracts values of p1 and p2
+            </summary>        
+        </member>
+        <member name="M:GL_Depth.Point3.op_Multiply(GL_Depth.Point3,System.Double)">
+            <summary>
+            multiplies values of p1 with v
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Point3.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Constructor
+            </summary>        
+        </member>
+        <member name="M:GL_Depth.Point3.Normalize">
+            <summary>
+            Normalizes this Point3. Its length will be 1.
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Point3.ToString">
+            <summary>
+            gives Values of Point3 as String
+            </summary>
+            <returns>Values of Point3 as string</returns>
+        </member>
+        <member name="T:GL_Depth.Vector3">
+            <summary>
+            the Vector between Point3 pkt1 and Point3 pkt2
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Vector3.a">
+            <summary>
+            Der Startpunkt des Vectors
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Vector3.b">
+            <summary>
+            Der Endpunkt des Vectors
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Vector3.#ctor(GL_Depth.Point3,GL_Depth.Point3)">
+            <summary>
+            Constructor
+            </summary>        
+        </member>
+        <member name="T:GL_Depth.Square">
+            <summary>
+            a Square of Point3
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Square.a">
+            <summary>
+            Ecke des vierecks
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Square.b">
+            <summary>
+            Ecke des vierecks
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Square.c">
+            <summary>
+            Ecke des vierecks
+            </summary>
+        </member>
+        <member name="F:GL_Depth.Square.d">
+            <summary>
+            Ecke des vierecks
+            </summary>
+        </member>
+        <member name="M:GL_Depth.Square.#ctor(GL_Depth.Point3,GL_Depth.Point3,GL_Depth.Point3,GL_Depth.Point3)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:GL_Depth.Kneul">
+            <summary>
+            Ein Punktkneul welches sich "Snake"-Ähnlich durch den Raum bewegt
+            </summary>
+        </member>
+        <member name="T:GL_Depth.Sphere">
+            <summary>
+            Viele Punkte auf eine Kugeloberfläche
+            </summary>
+        </member>
+    </members>
+</doc>

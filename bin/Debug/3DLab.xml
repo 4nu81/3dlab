@@ -1,0 +1,2114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>3DLab</name>
+    </assembly>
+    <members>
+        <member name="F:GL3DLab.Matrix.Value">
+            <summary>
+            Die Matrix selbst
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Matrix.TransMatrix(System.Single,System.Single,System.Single)">
+            <summary>
+            eine Translationsmatrix
+            </summary>
+            <param name="x">Translation in x Richtung</param>
+            <param name="y">Translation in y Richtung</param>
+            <param name="z">Translation in z Richtung</param>
+        </member>
+        <member name="M:GL3DLab.Matrix.RotMatrix(System.Single,GL3DLab.Point3)">
+            <summary>
+            Rotationsmatrix
+            </summary>
+            <param name="angle">Drehwinkel</param>
+            <param name="rotachs">Achse um die gedreht werden soll</param>
+        </member>
+        <member name="M:GL3DLab.MatrixMath.solveItem(GL3DLab.Matrix,GL3DLab.Matrix,System.Int32,System.Int32)">
+            <summary>
+            Eine Spalten - Zeilenoperation aus der Matrixmultiplikation
+            </summary>
+            <param name="Mat1">Matrix 1</param>
+            <param name="Mat2">Matrix 2</param>
+            <param name="row">Bezugszeile in Matrix 1</param>
+            <param name="column">Bezugsspalte in Matrix 2</param>
+            <returns>Produkt aus Spalte und Zeile</returns>
+        </member>
+        <member name="M:GL3DLab.MatrixMath.MatDotPoint(GL3DLab.Matrix,GL3DLab.Point3)">
+            <summary>
+            Matrix o Vector
+            </summary>
+            <param name="Mat1">Matrix</param>
+            <param name="P1">Vektor</param>
+            <returns>Punkt der mittels der Matrix transformiert wurde</returns>
+        </member>
+        <member name="M:GL3DLab.MatrixMath.MatDotMat(GL3DLab.Matrix,GL3DLab.Matrix)">
+            <summary>
+            Matrix o Matrix
+            </summary>
+            <param name="Mat1">Matrix 1</param>
+            <param name="Mat2">Matrix 2</param>
+            <returns>Translations- oder Rotationsmatrizen werden hier verknüpft zu einer Transformationsmatrix</returns>
+        </member>
+        <member name="M:GL3DLab.Program.Main">
+            <summary>
+            Der Haupteinstiegspunkt für die Anwendung.
+            </summary>
+        </member>
+        <member name="T:GL3DLab.Statix">
+            <summary>
+            Statische Objekte in der 3D umgebung, die nicht simuliert werden
+            </summary>
+        </member>
+        <member name="T:GL3DLab.BaseFigure">
+            <summary>
+            Basisklasse für alle Figuren, die Grundlegendes Verhalten steuert.
+            </summary>
+        </member>
+        <member name="T:GL3DLab.IFigures">
+            <summary>
+            Interface ermöglicht Kommunikation mit dem Objekt durch die Mainform. Schnittstelle für Darstellung und Steuerung der Module
+            </summary>
+        </member>
+        <member name="M:GL3DLab.IFigures.Draw">
+            <summary>
+            Zeichnet das Objekt. Das Objekt muss alleine wissen, wie es gezeichnet wird.
+            'using Tao.OpenGl' muss verwendet werden;
+            </summary>
+        </member>
+        <member name="M:GL3DLab.IFigures.Init">
+            <summary>
+            Initialisiert das zu zeichnende Objekt
+            </summary>
+        </member>
+        <member name="M:GL3DLab.IFigures.Tick">
+            <summary>
+            diese Methode ist für Berechnungen neuer Positionen zuständig.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.IFigures.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Reicht die KeyEvents and die Objekte weiter, die diese dann auswerten können.
+            </summary>
+            <param name="e">Das Key Event enthält die gedrückte Taste</param>
+        </member>
+        <member name="M:GL3DLab.IFigures.OnShutdown">
+            <summary>
+            Falls Threads oder dergleichen im Objekt laufen müssen diese beendet werden.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.BaseFigure.InternalDraw">
+            <summary>
+            Interne Funktion zum Zeichnen des Objektes
+            </summary>
+        </member>
+        <member name="M:GL3DLab.BaseFigure.InternalTick">
+            <summary>
+            Interne Funktion für den Tick des Objektes
+            </summary>
+        </member>
+        <member name="M:GL3DLab.BaseFigure.Init">
+            <summary>
+            Jedes Objekt muss selbst wissen, wie es initialisiert wird.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.BaseFigure.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Reicht die KeyEvents and die Objekte weiter, die diese dann auswerten können.
+            </summary>
+            <param name="e">Das Key Event enthält die gedrückte Taste</param>
+        </member>
+        <member name="M:GL3DLab.BaseFigure.Draw">
+            <summary>
+            Soll bei Visible die Interne Drawfunktion aufrufen.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.BaseFigure.Tick">
+            <summary>
+            Soll bei Enabled die Interne Tickfunktion aufrufen.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.BaseFigure.OnShutdown">
+            <summary>
+            Wird beim Beenden der Mainform aufgerufen.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.BaseFigure.Cam">
+            <summary>
+            Somit kann die Klasse bei Bedarf auf die Kamera zugreifen.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.BaseFigure.Enabled">
+            <summary>
+            Schalter für die Simulation des Objektes
+            </summary>
+        </member>
+        <member name="P:GL3DLab.BaseFigure.Visible">
+            <summary>
+            Schalter für die Sichtbarkeit des Objektes
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Statix.paintCube">
+            <summary>
+            Soll Würfelgitter gezeichnet werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Statix.paintCubeSolid">
+            <summary>
+            Soll solider Würfel gezeichnet werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Statix.paintsystem">
+            <summary>
+            Soll das Koordinatensystem gezeichnet werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Statix.paintSin">
+            <summary>
+            Soll die Sinuskurve gezeichnet werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Statix.GridSize">
+            <summary>
+            Die Gittergröße des Koordinatensystems
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Statix.m_lVectorsCube">
+            <summary>
+            Enthält die Darstellungsvektoren für das Würfelgitter
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Statix.m_lPointsCubeSolid">
+            <summary>
+            Enthält die Quadrate für den soliden Würfel
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Statix.m_lPointsCube">
+            <summary>
+            Enthält die Eckpunkte für den Würfel
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Statix.DrawSystem(System.Single)">
+            <summary>
+            Zeichenmethode für das Koordinatensystem
+            </summary>
+            <param name="GridSize">Gittergröße für das Koordinatensystem</param>
+        </member>
+        <member name="M:GL3DLab.Statix.DrawCube(System.Single)">
+            <summary>
+            Zeichenmethode für das Würfelgitter
+            </summary>
+            <param name="Linewidth">Linienstärke der Gitterlinien</param>
+        </member>
+        <member name="M:GL3DLab.Statix.DrawCubeSolid">
+            <summary>
+            Zeichenmethode für den soliden Würfel
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Statix.DrawSinus">
+            <summary>
+            Zeichenmethode für die Sinuskurve
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Statix.initCube">
+            <summary>
+            Initialisierung für das Würfelgitter
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Statix.initCubeSolid">
+            <summary>
+            Initialisierungsmethode für den soliden Würfel
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Statix.InternalDraw">
+            <summary>
+            Interne Zeichenfunktion spricht die einzelnen Zeichenfunktionen der Klasse an
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Statix.InternalTick">
+            <summary>
+            Interne Tickfunktion ist bei den statischen Sachen nicht nötig
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Statix.Init">
+            <summary>
+            Initialisierung für die Würfel
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Statix.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Tastendruck auswerten
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GL3DLab.Statix.OnShutdown">
+            <summary>
+            bei Programmende aufgerufen
+            </summary>
+        </member>
+        <member name="T:GL3DLab.GraphicEngine">
+            <summary>
+            Die OpenGL Grafikengine
+            </summary>
+        </member>
+        <member name="M:GL3DLab.GraphicEngine.InitGl">
+            <summary>
+            Erstinizialisierung
+            GLControl.InitialiseContext muss auserhalb inizialisiert werden
+            </summary>
+        </member>
+        <member name="M:GL3DLab.GraphicEngine.ReInitGl(System.Int32,System.Int32)">
+            <summary>
+            GL reinizialisieren (zb nach resize)
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:GL3DLab.GraphicEngine.DrawDice(System.Single,System.Single,System.Single)">
+            <summary>
+            Wuerfel zeichnen
+            </summary>
+        </member>
+        <member name="M:GL3DLab.GraphicEngine.DrawPlate(System.Single,System.Single,System.Single)">
+            <summary>
+            Platte zeichnen
+            </summary>
+        </member>
+        <member name="M:GL3DLab.GraphicEngine.BeginPaint">
+            <summary>
+            Wird am anfang der Paintphase aufgerufen
+            </summary>
+        </member>
+        <member name="M:GL3DLab.GraphicEngine.Push">
+            <summary>
+            Gl.glPushMatrix
+            </summary>
+        </member>
+        <member name="M:GL3DLab.GraphicEngine.Pop">
+            <summary>
+            Gl.glPopMatrix
+            </summary>
+        </member>
+        <member name="T:GL3DLab.Mainform">
+            <summary>
+            Hauptformular der Anwendung. Es enthält die Zeichenoberfläche für das OpenGL
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Mainform.components">
+            <summary>
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Mainform.Dispose(System.Boolean)">
+            <summary>
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:GL3DLab.Mainform.InitializeComponent">
+            <summary>
+            Erforderliche Methode für die Designerunterstützung.
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Mainform.Freelook">
+            <summary>
+            Settings
+            </summary> 
+        </member>
+        <member name="F:GL3DLab.Mainform.light">
+            <summary>
+            Welche Lichtquellenroutine soll verwendet werden
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Mainform.MouseX">
+            <summary>
+            HilfsMember für Camera- und Maussteuerung
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Mainform.MMath">
+            <summary>
+            Matrixoperationen Framework
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Mainform.thrOpenGL">
+            <summary>
+            Simulationsthread
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Mainform.sky">
+            <summary>
+            Skyboxobjekt
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Mainform.cam">
+            <summary>
+            Kameraobjekt
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Mainform.Figures">
+            <summary>
+            Die Figurenlisten
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Mainform.MouseFigures">
+            <summary>
+            Die Figuren, die eine Maussteuerung benötigen
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Mainform.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Mainform.CenterMouse">
+            <summary>
+            Moves Mousecursor to center
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Mainform.OnPaintCanvas(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            If Canvas is painted
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.Mainform.OnResizeCanvas(System.Object,System.EventArgs)">
+            <summary>
+            If Canvas is resizing
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.Mainform.OnKeyDownCanvas(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            If Key is down on Canvas
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.Mainform.OpenGL_Start">
+            <summary>
+            The Thread for Simulation starts
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Mainform.InitLight">
+            <summary>
+            Lightszene initialization
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Mainform.Tick">
+            <summary>
+            Simulation of Figures
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Mainform.FullScreen">
+            <summary>
+            inits Fullscreen
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Mainform.RepaintTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            RepaintTimer fires TickEvent
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.Mainform.MouseActionWheel(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mousewheel was used
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.Mainform.MouseActionDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mousekey pressed
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.Mainform.MouseActionUp(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mousekey released
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.Mainform.Mainform_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+            <summary>
+            Trigger fires on Closing Program
+            </summary>        
+        </member>
+        <member name="T:GL3dLab.Properties.Resources">
+            <summary>
+              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            </summary>
+        </member>
+        <member name="P:GL3dLab.Properties.Resources.ResourceManager">
+            <summary>
+              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            </summary>
+        </member>
+        <member name="P:GL3dLab.Properties.Resources.Culture">
+            <summary>
+              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="T:GL3DLab.StaticVars">
+            <summary>
+            Hält Globale Settings für die Anwendung
+            </summary>
+        </member>
+        <member name="F:GL3DLab.StaticVars.Light">
+            <summary>
+            Licht an/aus
+            </summary>
+        </member>
+        <member name="F:GL3DLab.StaticVars.brightness">
+            <summary>
+            Helligkeitskonstante.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.StaticVars.IncLinewidth">
+            <summary>
+            erhöht die Liniendicke beim zeichnen
+            </summary>
+        </member>
+        <member name="M:GL3DLab.StaticVars.DecLinewidth">
+            <summary>
+            verringert die Liniendicke beim zeichnen
+            </summary>
+        </member>
+        <member name="P:GL3DLab.StaticVars.Brightness">
+            <summary>
+            Kann für die Helligkeit benutzt werden.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.StaticVars.Linewidth">
+            <summary>
+            Kann für die Linienstärke benutzt werden.
+            </summary>
+        </member>
+        <member name="T:GL3DLab.PPoint">
+            <summary>
+            Klasse für die Leuchtspur hinter den Körpern
+            </summary>
+        </member>
+        <member name="T:GL3DLab.Point3">
+            <summary>
+            Eine Punktklasse.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Point3.x">
+            <summary>
+            Die X-Komponente
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Point3.y">
+            <summary>
+            Die Y-Komponente
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Point3.z">
+            <summary>
+            Die Z-Komponente
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Point3.assign(GL3DLab.Point3)">
+            <summary>
+            Assigns Values of p1 to this by leaving adresses as they are
+            </summary>
+            <param name="p1">Point3 to assign values to this</param>
+        </member>
+        <member name="M:GL3DLab.Point3.op_Addition(GL3DLab.Point3,GL3DLab.Point3)">
+            <summary>
+            sum up the values of p1 and p1
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.Point3.op_Subtraction(GL3DLab.Point3,GL3DLab.Point3)">
+            <summary>
+            subtracts values of p1 and p2
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.Point3.op_Multiply(GL3DLab.Point3,System.Double)">
+            <summary>
+            multiplies values of p1 with v
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Point3.op_Division(GL3DLab.Point3,System.Double)">
+            <summary>
+            divides values of p1 with v
+            </summary>
+            <param name="p1"></param>
+            <param name="v"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GL3DLab.Point3.Distance(GL3DLab.Point3,GL3DLab.Point3)">
+            <summary>
+            Entfernung zwischen 2 Punkten.
+            </summary>
+            <param name="p1">Punkt1</param>
+            <param name="p2">Punkt2</param>
+            <returns>Entfernung als Float</returns>
+        </member>
+        <member name="M:GL3DLab.Point3.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Constructor
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.Point3.#ctor">
+            <summary>
+            Ein 0-Argument Constructor für die Vererbung
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Point3.Normalize">
+            <summary>
+            Normalizes this Point3. Its length will be 1.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Point3.ToString">
+            <summary>
+            gives Values of Point3 as String
+            </summary>
+            <returns>Values of Point3 as string</returns>
+        </member>
+        <member name="P:GL3DLab.Point3.Abs">
+            <summary>
+            Betrag des Vektors: { Ursprung, Self }
+            </summary>
+            <returns>Betrag</returns>
+        </member>
+        <member name="F:GL3DLab.PPoint._Birthtime">
+            <summary>
+            Erstellungszeit des Punktes
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PPoint.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="X">X Position</param>
+            <param name="Y">Y Position</param>
+            <param name="Z">Z Position</param>
+        </member>
+        <member name="P:GL3DLab.PPoint.Alpha">
+            <summary>
+            Sichtbarkeit des Punktes abhängig von der Lebenszeit des Punktes
+            </summary>
+        </member>
+        <member name="T:GL3DLab.PlanetShape">
+            <summary>
+            Form der Planeten
+            </summary>
+        </member>
+        <member name="T:GL3DLab.Planet">
+            <summary>
+            Ein Planet kreist um seine Sonne.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Planet.trace">
+            <summary>
+            Spur des Planeten
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Planet.PlanetMove">
+            <summary>
+            Thread für Planetenbewegung
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Planet.MM">
+            <summary>
+            Member für Matrixoperationen
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Planet.showTrace">
+            <summary>
+            Soll Planetenspur angezeigt werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Planet._Dir">
+            <summary>
+            Richtung des Planeten
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Planet.InternalInit(System.Single,System.Single,GL3DLab.Point3,GL3DLab.Point3)">
+            <summary>
+            Interne Initialisierung des Systems
+            </summary>
+            <param name="AngleZ">Drehwinkel um Z Achse</param>
+            <param name="AngleX">Drehwinkel um X Achse</param>
+            <param name="Pos">Planetenposition</param>
+            <param name="Dir">Planetenbewegung</param>
+        </member>
+        <member name="M:GL3DLab.Planet.DrawTrace">
+            <summary>
+            Zeichenroutine für die Planetenspur
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Planet.DrawSun">
+            <summary>
+            Zeichenroutine für die Sonne
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Planet.DrawPlanet">
+            <summary>
+            Zeichenroutine für den Planeten
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Planet.InternalDraw">
+            <summary>
+            Interne Drawfunktion
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Planet.ThreadTick">
+            <summary>
+            ein Tick im Thread
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Planet.PlanetMove_Start">
+            <summary>
+            Eigener Thread für Bewegung des Planeten
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Planet.Init">
+            <summary>
+            Initialisiert den Planeten und seine Position und Laufbahn
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Planet.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Wird aufgerufen sobald eine Taste gedrückt wurde.
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.Planet.InternalTick">
+            <summary>
+            Da in Thread ausgelagert ist hier nichts nötig.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Planet.#ctor">
+            <summary>
+            Constructor erzeugt auch Threadobjekt.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Planet.OnShutdown">
+            <summary>
+            PlanetenBewegungsThread muss angehalten werden beim beenden.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.Planet.Enabled">
+            <summary>
+            musste überschrieben werden, da es zum starten des Thread dienen soll.
+            </summary>
+        </member>
+        <member name="T:GL3DLab.PlanetAdvanced3">
+            <summary>
+            Planeten kreisen um ihre Sonne.
+            </summary>
+        </member>
+        <member name="T:GL3DLab.IMouseControlled">
+            <summary>
+            Schnittstelle ermöglicht Maussteuerung und Mausklicks auszuwerten.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.IMouseControlled.MouseButton(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mousebutton geklickt
+            </summary>
+            <param name="e">Das Event enthält die gedrückte Taste</param>
+        </member>
+        <member name="M:GL3DLab.IMouseControlled.updateObject">
+            <summary>
+            aktualisieren nach MouseEvent
+            </summary>
+        </member>
+        <member name="P:GL3DLab.IMouseControlled.mx">
+            <summary>
+            Bewegung der Maus in X-Richtung
+            </summary>
+        </member>
+        <member name="P:GL3DLab.IMouseControlled.my">
+            <summary>
+            Bewegung der Maus in Y-Richtung
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3.initSunMass">
+            <summary>
+            Die Größe der ersten Sonne. Dient auch als Basis-Faktor für neue Sonnen.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3.suncount">
+            <summary>
+            Anzahl der bisher existierenden Sonnen (auch gelöschte)
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3.showTrace">
+            <summary>
+            Soll Planetspur gezeigt werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3.simulate">
+            <summary>
+            Soll Bewegung simuliert werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3.centered">
+            <summary>
+            gibt an, ob die Sonne im Ursprung gelockt werden soll
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3.Sun">
+            <summary>
+            Sonne, falls entsteht.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3.MM">
+            <summary>
+            Member für Matrixoperationen
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3.Objects">
+            <summary>
+            Liste von Körpern im System
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3.rnd">
+            <summary>
+            Zufallsgenerator
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.InternalDraw">
+            <summary>
+            Interne Drawfunktion
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.ThreadTick">
+            <summary>
+            eine Simulationsperiode
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.fak">
+            <summary>
+            gibt zufällig -1 oder +1 zurück
+            </summary>
+            <returns>float -1 oder +1</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.CalcDust">
+            <summary>
+            Hier wird die neue Position in Abhängigkeit von der Masse des Zentralkörpers bestimmt.
+            </summary>        
+            <returns>zufällig generierten Wert abhängig von Masse und Art des Zentralkörpers</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.Calc(GL3DLab.o2Object,System.Boolean,System.Boolean)">
+            <summary>
+            Hier wird die neue Position in Abhängigkeit von der Masse des Zentralkörpers bestimmt.
+            </summary>
+            <param name="_Sun">Zentralkörper</param>
+            <param name="isSun">ist Zentralkörper eine Sonne?</param>
+            <param name="SunIsParent">ist Zentralkörper die Hauptsonne?</param>
+            <returns>zufällig generierten Wert abhängig von Masse und Art des Zentralkörpers</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.RotMatrix90z">
+            <summary>
+            eine 90° Rotationsmatrix um die z-Achse
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.RndDustPosToSun">
+            <summary>
+            Zufällige Position bezogen auf ein Zentralobjekt
+            </summary>        
+            <returns>beliebiger Vektor zu einer Position in der Nähe des Zentralobjektes</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.RndPosToSun(GL3DLab.o2Object,System.Boolean,System.Boolean)">
+            <summary>
+            Zufällige Position bezogen auf ein Zentralobjekt
+            </summary>
+            <param name="_Sun">Zentralobjekt</param>
+            <param name="isSun">Ist neues Objekt eine Sonne?</param>
+            <param name="SunIsParent">Ist die Hauptsonne das Zentralobjekt?</param>
+            <returns>beliebiger Vektor zu einer Position in der Nähe des Zentralobjektes</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.AddPlanet(GL3DLab.o2Object,System.Int32)">
+            <summary>
+            Fügt einem Zentralobjekt untergeordnete es umkreisende Objekte hinzu
+            </summary>
+            <param name="_ZentralObjekt">Dies ist das Zentralobjekt um welches die hinzugefügten kreisen sollen</param>
+            <param name="cnt">Anzahl der das Zentralobjekt umkreisenden Objekte</param>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.AddDust(System.Int32)">
+            <summary>
+            Fügt einem Zentralobjekt untergeordnete es umkreisende Objekte hinzu
+            </summary>        
+            <param name="cnt">Anzahl der das Zentralobjekt umkreisenden Objekte</param>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.ConvertPlanet2Sun(GL3DLab.o2Object)">
+            <summary>
+            Ein Planet soll zu einer Sonne werden ab einer bestimmten Masse
+            </summary>
+            <param name="Planet2Convert">zu verändernder Planet</param>        
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.Init">
+            <summary>
+            Initialisiert die Sonne und Ihre Position und Laufbahn
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.resetSun">
+            <summary>
+            Setzt die Sonne in den Ursprung und versetzt die Planeten relativ dazu.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Wird aufgerufen sobald eine Taste gedrückt wurde.
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.InternalTick">
+            <summary>
+            Da in Thread ausgelagert ist, ist hier nichts nötig.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.OnShutdown">
+            <summary>
+            Hier nicht gebraucht
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.MouseButton(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mousebuttonevent. Wird durchgereicht vom Mainform
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3.updateObject">
+            <summary>
+            Falls nach Mausaktion ein Update des Objektes nötig ist.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.PlanetAdvanced3.mx">
+            <summary>
+            Bewegungsdifferenz der X-Achse der Maus.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.PlanetAdvanced3.my">
+            <summary>
+            Bewegungsdifferenz der Y-Achse der Maus.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.o2Object.Size">
+            <summary>
+            Größe des Objekts abhängig von der Masse
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:GL3DLab.o2Object.mass">
+            <summary>
+            Masse des Objektes
+            </summary>
+        </member>
+        <member name="F:GL3DLab.o2Object.Farbe">
+            <summary>
+            Farbarray für Darstellung
+            </summary>
+        </member>
+        <member name="F:GL3DLab.o2Object.Position">
+            <summary>
+            aktuelle Position
+            </summary>
+        </member>
+        <member name="F:GL3DLab.o2Object.Direction">
+            <summary>
+            Bewegungsrichtung
+            </summary>
+        </member>
+        <member name="F:GL3DLab.o2Object.trace">
+            <summary>
+            Liste der Tracepunkte
+            </summary>
+        </member>
+        <member name="F:GL3DLab.o2Object.Parent">
+            <summary>
+            falls sich Bewegung nur auf Parent beziehen soll
+            </summary>
+        </member>
+        <member name="F:GL3DLab.o2Object.TraceCnt">
+            <summary>
+            Zähler für die Leuchtspurerstellung - Bessere Performance
+            </summary>
+        </member>
+        <member name="M:GL3DLab.o2Object.Trace">
+            <summary>
+            Berechnung der Leuchspur
+            </summary>
+        </member>
+        <member name="M:GL3DLab.o2Object.#ctor">
+            <summary>
+            Null Parameter Constructor für Vererbung
+            </summary>
+        </member>
+        <member name="M:GL3DLab.o2Object.#ctor(GL3DLab.Point3,GL3DLab.Point3,System.Single,System.Single[],GL3DLab.o2Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Pos">Position</param>
+            <param name="Dir">Richtung</param>
+            <param name="mass">Masse</param>
+            <param name="Color">Farbarray</param>
+            <param name="_Parent">Bewegung kann sich auch nur auf den Parent beziehen</param>
+        </member>
+        <member name="M:GL3DLab.o2Object.DrawTrace">
+            <summary>
+            Zeichenroutine für Leuchtspur
+            </summary>
+        </member>
+        <member name="M:GL3DLab.o2Object.a(GL3DLab.o2Object)">
+            <summary>
+            Beschleunigung Richtung Bezugsobjekt
+            </summary>
+            <param name="o">Bezugsobjekt</param>
+            <returns></returns>
+        </member>
+        <member name="M:GL3DLab.o2Object._v(GL3DLab.o2Object)">
+            <summary>
+            Bewegungsrichtungsänderung durch Beschleunigung zum Objekt
+            </summary>
+            <param name="o">Bezugsobjekt</param>
+            <returns>Richtungsvektor</returns>
+        </member>
+        <member name="M:GL3DLab.o2Object.MoveObject(System.Collections.Generic.List{GL3DLab.o2Object})">
+            <summary>
+            allgemeine Bewegungsroutine, kann überschrieben werden (für Sonnen)
+            </summary>
+            <param name="Objects"></param>
+        </member>
+        <member name="M:GL3DLab.o2Object.DrawObject">
+            <summary>
+            allgemeine Zeichenroutine, kann überschrieben werden (für Sonnen)
+            </summary>
+        </member>
+        <member name="F:GL3DLab.o2Sun._light">
+            <summary>
+            Lichtquellenindex
+            </summary>
+        </member>
+        <member name="M:GL3DLab.o2Sun.MoveObject(System.Collections.Generic.List{GL3DLab.o2Object})">
+            <summary>
+            Bewegungsroutine für Sonne
+            </summary>
+            <param name="Objects"></param>
+        </member>
+        <member name="M:GL3DLab.o2Sun.#ctor">
+            <summary>
+            NullParameter Constructor für evtl. Vererbung.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.o2Sun.#ctor(GL3DLab.Point3,GL3DLab.Point3,System.Single,System.Single[],System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Pos">Position</param>
+            <param name="Dir">Bewegungsrichtung</param>
+            <param name="mass">Masse</param>
+            <param name="Color">Farbarray</param>
+            <param name="light">Lichtquellenindex</param>
+        </member>
+        <member name="M:GL3DLab.o2Sun.DrawObject">
+            <summary>
+            Zeichenroutine für o2Object wird überschieben, da Sonne eine Lichtquelle sind
+            </summary>
+        </member>
+        <member name="T:GL3DLab.PlanetAdvanced2">
+            <summary>
+            Planen kreisen um ihre Sonne.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.UniFak">
+            <summary>
+            Faktor, der die Potenzen des System relativiert.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.dt">
+            <summary>
+            Schrittweite pro Threaddurchlauf
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.G">
+            <summary>
+            Globale Gravitationskonstante.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2._Light">
+            <summary>
+            Alle OpenGl Lichtquellen für den Zugriff durch die Sonnen.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.initSunMass">
+            <summary>
+            Die Größe der ersten Sonne. Dient auch als Basis-Faktor für neue Sonnen.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.suncount">
+            <summary>
+            Anzahl der bisher existierenden Sonnen (auch gelöschte)
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.showTrace">
+            <summary>
+            Soll Planetspur gezeigt werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.simulate">
+            <summary>
+            Soll Bewegung simuliert werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.centered">
+            <summary>
+            Gibt an ob die Hauptsonne immer Zentriert sein soll.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.lockSun">
+            <summary>
+            Soll die Hauptsonne statisch sein? (keine Bewegung)
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.MM">
+            <summary>
+            Member für Matrixoperationen
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.Objects">
+            <summary>
+            Liste von Körpern im System
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.Sun">
+            <summary>
+            Hauptsonne
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced2.rnd">
+            <summary>
+            Zufallsgenerator
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.InternalDraw">
+            <summary>
+            Interne Drawfunktion
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.ThreadTick">
+            <summary>
+            eine Simulationsperiode
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.fak">
+            <summary>
+            gibt zufällig -1 oder +1 zurück
+            </summary>
+            <returns>float -1 oder +1</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.Calc(GL3DLab.o2Object,System.Boolean,System.Boolean)">
+            <summary>
+            Hier wird die neue Position in Abhängigkeit von der Masse des Zentralkörpers bestimmt.
+            </summary>
+            <param name="_Sun">Zentralkörper</param>
+            <param name="isSun">ist Zentralkörper eine Sonne?</param>
+            <param name="SunIsParent">ist Zentralkörper die Hauptsonne?</param>
+            <returns>zufällig generierten Wert abhängig von Masse und Art des Zentralkörpers</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.RotMatrix90z">
+            <summary>
+            eine 90° Rotationsmatrix um die z-Achse
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.RndPosToSun(GL3DLab.o2Object,System.Boolean,System.Boolean)">
+            <summary>
+            Zufällige Position bezogen auf ein Zentralobjekt
+            </summary>
+            <param name="_Sun">Zentralobjekt</param>
+            <param name="isSun">Ist neues Objekt eine Sonne?</param>
+            <param name="SunIsParent">Ist die Hauptsonne das Zentralobjekt?</param>
+            <returns>beliebiger Vektor zu einer Position in der Nähe des Zentralobjektes</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.AddSun">
+            <summary>
+            Eine um die Hauptsonne kreisende Sonne wird erstellt. Diese kann auch größer sein, was sie aber nicht zur Hauptsonne macht.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.AddPlanet(GL3DLab.o2Object,System.Int32)">
+            <summary>
+            Fügt einem Zentralobjekt untergeordnete es umkreisende Objekte hinzu
+            </summary>
+            <param name="_ZentralObjekt">Dies ist das Zentralobjekt um welches die hinzugefügten kreisen sollen</param>
+            <param name="cnt">Anzahl der das Zentralobjekt umkreisenden Objekte</param>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.ResetSun">
+            <summary>
+            Setzt die Position und Bewegungsrichtung der Hauptsonne zurück
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.AddComingSun">
+            <summary>
+            eine von aussen auf die Hauptsonne zufliegende Sonne mit Planeten wird erstellt
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.Init">
+            <summary>
+            Initialisiert die Sonne und Ihre Position und Laufbahn
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Wird aufgerufen sobald eine Taste gedrückt wurde.
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.InternalTick">
+            <summary>
+            Da in Thread ausgelagert ist, ist hier nichts nötig.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.OnShutdown">
+            <summary>
+            Hier nicht gebraucht
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.MouseButton(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mousebuttonevent. Wird durchgereicht vom Mainform
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced2.updateObject">
+            <summary>
+            Falls nach Mausaktion ein Update des Objektes nötig ist.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.PlanetAdvanced2.mx">
+            <summary>
+            Bewegungsdifferenz der X-Achse der Maus.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.PlanetAdvanced2.my">
+            <summary>
+            Bewegungsdifferenz der Y-Achse der Maus.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.DiscoBobb.fak">
+            <summary>
+            gibt zufällig -1 oder +1 zurück
+            </summary>
+            <returns>float -1 oder +1</returns>
+        </member>
+        <member name="M:GL3DLab.DiscoBobb.CalcDust">
+            <summary>
+            Hier wird die neue Position in Abhängigkeit von der Masse des Zentralkörpers bestimmt.
+            </summary>        
+            <returns>zufällig generierten Wert abhängig von Masse und Art des Zentralkörpers</returns>
+        </member>
+        <member name="M:GL3DLab.DiscoBobb.RndDustPosToSun">
+            <summary>
+            Zufällige Position bezogen auf ein Zentralobjekt
+            </summary>        
+            <returns>beliebiger Vektor zu einer Position in der Nähe des Zentralobjektes</returns>
+        </member>
+        <member name="M:GL3DLab.DiscoBobb.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Wird aufgerufen sobald eine Taste gedrückt wurde.
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.DiscoBobb.InternalTick">
+            <summary>
+            Da in Thread ausgelagert ist hier nichts nötig.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.DiscoBobb.#ctor">
+            <summary>
+            Constructor erzeugt auch Threadobjekt.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.DiscoBobb.OnShutdown">
+            <summary>
+            PlanetenBewegungsThread muss angehalten werden beim beenden.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.DiscoBobb.Enabled">
+            <summary>
+            musste überschrieben werden, da es zum starten des Thread dienen soll.
+            </summary>
+        </member>
+        <member name="T:GL3DLab.Vector3">
+            <summary>
+            the Vector between Point3 pkt1 and Point3 pkt2
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Vector3.a">
+            <summary>
+            Der Startpunkt des Vectors
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Vector3.b">
+            <summary>
+            Der Endpunkt des Vectors
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Vector3.#ctor(GL3DLab.Point3,GL3DLab.Point3)">
+            <summary>
+            Constructor
+            </summary>        
+        </member>
+        <member name="T:GL3DLab.Square">
+            <summary>
+            a Square of Point3
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Square.a">
+            <summary>
+            Ecke des vierecks
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Square.b">
+            <summary>
+            Ecke des vierecks
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Square.c">
+            <summary>
+            Ecke des vierecks
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Square.d">
+            <summary>
+            Ecke des vierecks
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Square.#ctor(GL3DLab.Point3,GL3DLab.Point3,GL3DLab.Point3,GL3DLab.Point3)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:GL3DLab.Shot">
+            <summary>
+            Schüsse die sich linear durch den Raum bewegen
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot._Dir">
+            <summary>
+            Richtung des Schusses
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot._Red">
+            <summary>
+            Rotanteil in der Farbe
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot._Green">
+            <summary>
+            Grünanteil in der Farbe
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot._Blue">
+            <summary>
+            Blauanteil in der Farbe
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot._Speed">
+            <summary>
+            Geschwindigkeit des Schusses
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot._Birthtime">
+            <summary>
+            Erstellungszeit für den Schuss
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot._Pos">
+            <summary>
+            Position des Schusses im Raum
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot.__InitPos">
+            <summary>
+            Ausgangsposition des Schusses im Raum
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot._hit">
+            <summary>
+            Hat schuss etwas getroffen wird er automatisch entfernt.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot._AngleX">
+            <summary>
+            Ausrichtung um X-Achse
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot._AngleZ">
+            <summary>
+            Ausrichtung um Z-Achse
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot.MM">
+            <summary>
+            Matrizen Modul
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shot.Size">
+            <summary>
+            Größe des Schusses
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Shot.#ctor(GL3DLab.Camera,GL3DLab.Point3,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Constructor für Schuss
+            </summary>
+            <param name="cam">Kameraobjekt dient zur ermittlung der Position und Ausrichtung</param>
+            <param name="Dir">Richtung in die der Schuss fliegen soll (wird intern normiert)</param>
+            <param name="Red">Rotanteil in der Farbe</param>
+            <param name="Green">Grünanteil in der Farbe</param>
+            <param name="Blue">Blauanteil in der Farbe</param>
+            <param name="Speed">Bewegungsgeschwindigkeit</param>
+        </member>
+        <member name="M:GL3DLab.Shot.Draw(GL3DLab.Camera)">
+            <summary>
+            Schuss wird gezeichnet
+            </summary>
+            <param name="cam">Kameraobjekt</param>
+        </member>
+        <member name="M:GL3DLab.Shot.Move">
+            <summary>
+            Bewegung des Schusses, abhängig vom _Speed
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Shot.IsOld">
+            <summary>
+            Prüft Abstand des Schusses zu seiner Quelle. bei > 500 wird shot als Old betrachtet.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GL3DLab.Shots">
+            <summary>
+            Verwaltungsklasse für die Schüsse
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shots._Shots">
+            <summary>
+            Liste enthält alle Schüsse (to be outsourced)
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shots._ShotsDel">
+            <summary>
+            Liste enthält Schüsse die veraltet sind und zerstört werden können
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Shots.MMAth">
+            <summary>
+            Matrizenmodul
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Shots.#ctor(GL3DLab.MatrixMath)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="aMMAth">Matrizenmodul</param>
+        </member>
+        <member name="M:GL3DLab.Shots.InternalDraw">
+            <summary>
+            interne Zeichenfunktion
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Shots.InternalTick">
+            <summary>
+            interne Simulationsmethode für die Schüsse
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Shots.Init">
+            <summary>
+            Initialisierung für die Schüsse
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Shots.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Event bei Tastendruck
+            </summary>
+            <param name="e">Key Event Argument</param>
+        </member>
+        <member name="M:GL3DLab.Shots.MouseButton(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Tastendruck auf Maus
+            </summary>
+            <param name="e">Mouse Event Argument</param>
+        </member>
+        <member name="M:GL3DLab.Shots.updateObject">
+            <summary>
+            Falls Objekt nach Mausdruck oder Tastendruck geupdatet werden muss
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Shots.OnShutdown">
+            <summary>
+            Wird beim Beenden des Programms aufgerufen.
+            </summary>
+        </member>
+        <member name="T:GL3DLab.ParticleForms">
+            <summary>
+            Simulationsmuster für die Partikelfelder
+            </summary>
+        </member>
+        <member name="T:GL3DLab.initForms">
+            <summary>
+            Initialisiertungsformen für die Partikelfelder
+            </summary>
+        </member>
+        <member name="T:GL3DLab.DotStyle">
+            <summary>
+            Zeichenformen für die Partikelfelder
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvance.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Wird aufgerufen sobald eine Taste gedrückt wurde.
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.PlanetAdvance.InternalTick">
+            <summary>
+            Da in Thread ausgelagert ist hier nichts nötig.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvance.#ctor">
+            <summary>
+            Constructor erzeugt auch Threadobjekt.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvance.OnShutdown">
+            <summary>
+            PlanetenBewegungsThread muss angehalten werden beim beenden.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.PlanetAdvance.Enabled">
+            <summary>
+            musste überschrieben werden, da es zum starten des Thread dienen soll.
+            </summary>
+        </member>
+        <member name="T:GL3DLab.Kneul">
+            <summary>
+            Ein Punktkneul welches sich "Snake"-Ähnlich durch den Raum bewegt
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Kneul.kneulspeed">
+            <summary>
+            Anzahl an neu berechneten Punkten je durchlauf
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Kneul.invert">
+            <summary>
+            Farbumkehrung ( -1 oder +1 um mit Werten zu multiplizieren)
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Kneul.rndkn">
+            <summary>
+            Zufallsgenerator
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Kneul.m_lPointsKneul">
+            <summary>
+            Punkte des Kneulobjektes
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Kneul.m_lPointsZauber">
+            <summary>
+            Punkte des Zauberobjektes
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Kneul.DrawMagix(System.Int32,System.Single,System.Single,System.Int32)">
+            <summary>
+            Zeichenmethode für das Zauberobjekt
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Kneul.DrawKneul(System.Single,System.Int32,System.Single,System.Int32)">
+            <summary>
+            Zeichenmethode für das Kneulobjekt
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Kneul.NewPointOnKneul(System.Random,System.Int32)">
+            <summary>
+            Neue Punkte auf dem Kneul
+            </summary>
+            <param name="rndkn">Zufallsgenerator</param>
+            <param name="kneulspeed">Anzahl neuer Punkte</param>
+        </member>
+        <member name="M:GL3DLab.Kneul.NewPointKneul(System.Random)">
+            <summary>
+            Einzelner neuer Punkt auf dem Kneul
+            </summary>
+            <param name="rndkn">Zufallsgenerator</param>
+        </member>
+        <member name="M:GL3DLab.Kneul.NewPointOnMagix(System.Random,System.Int32)">
+            <summary>
+            Neue Punkte auf dem Zauber
+            </summary>
+            <param name="rndkn">Zufallsgenerator</param>
+            <param name="kneulspeed">Anzahl neuer Punkte</param>
+        </member>
+        <member name="M:GL3DLab.Kneul.NewPointZauber(System.Random,System.Int32)">
+            <summary>
+            einzelner neuer Punkt auf dem Kneul
+            </summary>
+            <param name="rndkn">Zufallsgenerator</param>
+            <param name="kneulspeed">Länge des Zaubers</param>
+        </member>
+        <member name="M:GL3DLab.Kneul.InternalDraw">
+            <summary>
+            Interne Zeichenfunktion
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Kneul.InternalTick">
+            <summary>
+            Interne Tickfunktion
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Kneul.Init">
+            <summary>
+            Initialisiertung der Kneul und Magix Objekte
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Kneul.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Auswertung Tastendruck
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Kneul.OnShutdown">
+            <summary>
+            Wird beim Beenden des Programmes ausgelöst.
+            </summary>
+        </member>
+        <member name="T:GL3DLab.Sphere">
+            <summary>
+            Viele Punkte auf eine Kugeloberfläche
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Sphere.m_lPoints">
+            <summary>
+            Liste der Punkte auf der Kugeloberfläche
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Sphere.MMath">
+            <summary>
+            Matrizen Modul
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Sphere.angle">
+            <summary>
+            Für die erzeugung neuer Punkte nötig
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Sphere.angle2">
+            <summary>
+            Für die erzeugung neuer Punkte nötig
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Sphere.#ctor(GL3DLab.MatrixMath)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="aMMath">Matrixmodul</param>
+        </member>
+        <member name="M:GL3DLab.Sphere.NewPointOnSphere">
+            <summary>
+            erzeugt neuen Punkt auf der Kugeloberfläche
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Sphere.DrawSphere(System.Single)">
+            <summary>
+            Zeichnet Kugel
+            </summary>
+            <param name="DotSize">Punktgröße</param>
+        </member>
+        <member name="M:GL3DLab.Sphere.NewPoint">
+            <summary>
+            eigentliche Berechnung eines neuen Punktes
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Sphere.InternalDraw">
+            <summary>
+            Interne Zeichenfunktion aus BaseFigure
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Sphere.InternalTick">
+            <summary>
+            Interne Simulationsfunktion aus BaseFigure
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Sphere.Init">
+            <summary>
+            Initialisierung der Kugeloberfläche
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Sphere.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Event bei Tastendruck
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Sphere.OnShutdown">
+            <summary>
+            Wird beim Beenden des Programms aufgerufen.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.ParticleField.m_lPointField">
+            <summary>
+            Liste enthält alle Punkte des Partikelfeldes.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.ParticleField.r">
+            <summary>
+            Zufallsgenerator
+            </summary>
+        </member>
+        <member name="F:GL3DLab.ParticleField.zmax">
+            <summary>
+            Höhe des höchsten Punktes (in Z-Richtung)
+            </summary>
+        </member>
+        <member name="F:GL3DLab.ParticleField.zmin">
+            <summary>
+            Höhe des tiefsten Punktes (in Z-Richtung)
+            </summary>
+        </member>
+        <member name="F:GL3DLab.ParticleField.delta">
+            <summary>
+            Kantenlänge der dargestellten Würfel und Flächen
+            </summary>
+        </member>
+        <member name="F:GL3DLab.ParticleField.forms">
+            <summary>
+            Initialisierungsmuster der Punkte
+            </summary>
+        </member>
+        <member name="F:GL3DLab.ParticleField.speed">
+            <summary>
+            Bewegungsgeschwindigkeit der Partikel
+            </summary>
+        </member>
+        <member name="F:GL3DLab.ParticleField.form">
+            <summary>
+            Bewegungsmuster der Partikel
+            </summary>
+        </member>
+        <member name="F:GL3DLab.ParticleField.shrink">
+            <summary>
+            Sollen Ausbreitung der Punkte verringert werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.ParticleField.reverse">
+            <summary>
+            Sollen Punkte rückwärts laufen?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.ParticleField.Dots">
+            <summary>
+            Form der Punkte
+            </summary>
+        </member>
+        <member name="M:GL3DLab.ParticleField.InternalDraw">
+            <summary>
+            Interne Zeichenfunktion
+            </summary>
+        </member>
+        <member name="M:GL3DLab.ParticleField.InternalTick">
+            <summary>
+            Interner Threadtick für die Simulation der Punkte
+            </summary>
+        </member>
+        <member name="M:GL3DLab.ParticleField.Init">
+            <summary>
+            Initialisierung der Punktmenge
+            </summary>
+        </member>
+        <member name="M:GL3DLab.ParticleField.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Wird bei Tastendruck ausgelöst
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GL3DLab.ParticleField.OnShutdown">
+            <summary>
+            Wird beim Beenden des Programmes aufgerufen
+            </summary>
+        </member>
+        <member name="T:GL3DLab.TangentialFunctions">
+            <summary>
+            Stellt eine Tangentialebene auf einer Funktion im R³ dar.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.paintfunction">
+            <summary>
+            Wird Funktion gezeichnet
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.paintfunctiontangent">
+            <summary>
+            Wird Tangentialebene gezeichnet?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.fmin">
+            <summary>
+            niedrigster Funktionswert
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.fmax">
+            <summary>
+            höchster Funktionswert
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.step">
+            <summary>
+            Schrittweite der Funktionsargumente
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.ymin">
+            <summary>
+            niedrigster Funktionswert
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.ymax">
+            <summary>
+            höchster Funktionswert
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.x0">
+            <summary>
+            x Komponente für Aufhängepunkt der Tangentialebene
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.y0">
+            <summary>
+            y Komponente für Aufhängepunkt der Tangentialebene
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.z0">
+            <summary>
+            z Komponente für Aufhängepunkt der Tangentialebene
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.m_lPointsFunction">
+            <summary>
+            Enthält die Punkte der Funktion
+            </summary>
+        </member>
+        <member name="F:GL3DLab.TangentialFunctions.m_lPointsFunctionTangent">
+            <summary>
+            Enthält die Punkte der Tangentialfunktion
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.solvef(System.Double,System.Double)">
+            <summary>
+            Funktionsgleichung f(x,y)
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.solvefx(System.Double,System.Double)">
+            <summary>
+            partielle Ableitung der Funktion nach x f'x(x,y)
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.solvefy(System.Double,System.Double)">
+            <summary>
+            partielle Ableitung der Funktion nach y f'x(x,y)
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.tangentPlane(System.Double,System.Double)">
+            <summary>
+            Gleichung für die Tangentialebene
+            f'x(x0,y0)*(x-x0)+f'y(x0,y0)*(y-y0)+f(x0,y0)
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.initFunctionTangent">
+            <summary>
+            Initialisiertung Tangentialebene in P=(x0,y0,z0)
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.initFunction">
+            <summary>
+            Initialisierung der Funktion
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.DrawFunction">
+            <summary>
+            Zeichenroutine für die Funktion
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.DrawTangente">
+            <summary>
+            Zeichenroutine für die Tangentialebene
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.InternalDraw">
+            <summary>
+            Interne Zeichenfunktion aus der BaseFigure
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.InternalTick">
+            <summary>
+            Simulationsroutine: hier überflüssig
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.Init">
+            <summary>
+            Initialisierung aus der BaseFigure
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Tastendruckevent
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.OnShutdown">
+            <summary>
+            Wird beim Beenden des Programms ausgelöst.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.MouseButton(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Registrierung der Maustastenbenutzung
+            </summary>
+        </member>
+        <member name="M:GL3DLab.TangentialFunctions.updateObject">
+            <summary>
+            Falls nach einer Maussteuerung ein Objekt aktualisiert werden muss
+            </summary>
+        </member>
+        <member name="P:GL3DLab.TangentialFunctions.mx">
+            <summary>
+            Bewegungsregistrierung der Maus-X-Achse
+            </summary>
+        </member>
+        <member name="P:GL3DLab.TangentialFunctions.my">
+            <summary>
+            Bewegungsregistrierung der Maus-Y-Achse
+            </summary>
+        </member>
+        <member name="T:GL3DLab.PlanetAdvanced3T">
+            <summary>
+            Planeten kreisen um ihre Sonne.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3T.initSunMass">
+            <summary>
+            Die Größe der ersten Sonne. Dient auch als Basis-Faktor für neue Sonnen.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3T.suncount">
+            <summary>
+            Anzahl der bisher existierenden Sonnen (auch gelöschte)
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3T.showTrace">
+            <summary>
+            Soll Planetspur gezeigt werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3T.simulate">
+            <summary>
+            Soll Bewegung simuliert werden?
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3T.centered">
+            <summary>
+            gibt an, ob die Sonne im Ursprung gelockt werden soll
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3T.Sun">
+            <summary>
+            Sonne, falls entsteht.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3T.MM">
+            <summary>
+            Member für Matrixoperationen
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3T.Objects">
+            <summary>
+            Liste von Körpern im System
+            </summary>
+        </member>
+        <member name="F:GL3DLab.PlanetAdvanced3T.rnd">
+            <summary>
+            Zufallsgenerator
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.InternalDraw">
+            <summary>
+            Interne Drawfunktion
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.ThreadTick">
+            <summary>
+            eine Simulationsperiode
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.fak">
+            <summary>
+            gibt zufällig -1 oder +1 zurück
+            </summary>
+            <returns>float -1 oder +1</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.CalcDust">
+            <summary>
+            Hier wird die neue Position in Abhängigkeit von der Masse des Zentralkörpers bestimmt.
+            </summary>        
+            <returns>zufällig generierten Wert abhängig von Masse und Art des Zentralkörpers</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.Calc(GL3DLab.o2Object,System.Boolean,System.Boolean)">
+            <summary>
+            Hier wird die neue Position in Abhängigkeit von der Masse des Zentralkörpers bestimmt.
+            </summary>
+            <param name="_Sun">Zentralkörper</param>
+            <param name="isSun">ist Zentralkörper eine Sonne?</param>
+            <param name="SunIsParent">ist Zentralkörper die Hauptsonne?</param>
+            <returns>zufällig generierten Wert abhängig von Masse und Art des Zentralkörpers</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.RotMatrix90z">
+            <summary>
+            eine 90° Rotationsmatrix um die z-Achse
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.RndDustPosToSun">
+            <summary>
+            Zufällige Position bezogen auf ein Zentralobjekt
+            </summary>        
+            <returns>beliebiger Vektor zu einer Position in der Nähe des Zentralobjektes</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.RndPosToSun(GL3DLab.o2Object,System.Boolean,System.Boolean)">
+            <summary>
+            Zufällige Position bezogen auf ein Zentralobjekt
+            </summary>
+            <param name="_Sun">Zentralobjekt</param>
+            <param name="isSun">Ist neues Objekt eine Sonne?</param>
+            <param name="SunIsParent">Ist die Hauptsonne das Zentralobjekt?</param>
+            <returns>beliebiger Vektor zu einer Position in der Nähe des Zentralobjektes</returns>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.AddPlanet(GL3DLab.o2Object,System.Int32)">
+            <summary>
+            Fügt einem Zentralobjekt untergeordnete es umkreisende Objekte hinzu
+            </summary>
+            <param name="_ZentralObjekt">Dies ist das Zentralobjekt um welches die hinzugefügten kreisen sollen</param>
+            <param name="cnt">Anzahl der das Zentralobjekt umkreisenden Objekte</param>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.AddDust(System.Int32)">
+            <summary>
+            Fügt einem Zentralobjekt untergeordnete es umkreisende Objekte hinzu
+            </summary>        
+            <param name="cnt">Anzahl der das Zentralobjekt umkreisenden Objekte</param>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.ConvertPlanet2Sun(GL3DLab.o2Object)">
+            <summary>
+            Ein Planet soll zu einer Sonne werden ab einer bestimmten Masse
+            </summary>
+            <param name="Planet2Convert">zu verändernder Planet</param>        
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.Init">
+            <summary>
+            Initialisiert die Sonne und Ihre Position und Laufbahn
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.resetSun">
+            <summary>
+            Setzt die Sonne in den Ursprung und versetzt die Planeten relativ dazu.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.KeyPressed(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Wird aufgerufen sobald eine Taste gedrückt wurde.
+            </summary>        
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.InternalTick">
+            <summary>
+            Da in Thread ausgelagert ist, ist hier nichts nötig.
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.OnShutdown">
+            <summary>
+            Hier nicht gebraucht
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.MouseButton(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Mousebuttonevent. Wird durchgereicht vom Mainform
+            </summary>
+        </member>
+        <member name="M:GL3DLab.PlanetAdvanced3T.updateObject">
+            <summary>
+            Falls nach Mausaktion ein Update des Objektes nötig ist.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.PlanetAdvanced3T.mx">
+            <summary>
+            Bewegungsdifferenz der X-Achse der Maus.
+            </summary>
+        </member>
+        <member name="P:GL3DLab.PlanetAdvanced3T.my">
+            <summary>
+            Bewegungsdifferenz der Y-Achse der Maus.
+            </summary>
+        </member>
+        <member name="T:GL3DLab.Camera">
+            <summary>
+            Das Kameraobjekt verwaltet den Blickwinkel und die Position des "Betrachters" 
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Camera.X">
+            <summary>
+            Die X-Komponente
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Camera.Y">
+            <summary>
+            Die Y-Komponente
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Camera.Z">
+            <summary>
+            Die Z-Komponente
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Camera.angleZ">
+            <summary>
+            Der Blickwinkel auf der X-Y-Ebene
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Camera.angleX">
+            <summary>
+            Der Blickwinkel in die Höhe
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Camera.SetNewCameraPosition(System.Double,System.Double)">
+            <summary>
+            Der Blickwinkel wird um mx und mz Grad verändert.
+            </summary>
+            <param name="mz">Blickwinkel auf X-Y-Ebene wird um mz Grad verändert.</param>
+            <param name="mx">Blickwinkel nach "Oben" wird um mx Grad verändert.</param>
+        </member>
+        <member name="M:GL3DLab.Camera.SetCamera">
+            <summary>
+            Cameraposition wird im OpenGl positioniert
+            </summary>
+        </member>
+        <member name="T:GL3DLab.Skybox">
+            <summary>
+            Die Skybox umgibt die Kamera mit einer nicht Z-Gepufferten Textur.
+            </summary>
+        </member>
+        <member name="F:GL3DLab.Skybox._skybox">
+            <summary>
+            Enthält Indizes für die Texturen
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Skybox.InternalInitTextur(System.String,System.Int32)">
+            <summary>
+            Die einzelnen Textruren werden hier geladen.
+            </summary>
+            <param name="filename">Dateiname der Textur</param>
+            <param name="nr">Index der Textur</param>
+        </member>
+        <member name="M:GL3DLab.Skybox.InitGLTexture">
+            <summary>
+            Texturen werden den Indizes zugeordnet und geladen
+            </summary>
+        </member>
+        <member name="M:GL3DLab.Skybox.DrawSky(GL3DLab.Camera)">
+            <summary>
+            Zeichenroutine für die Skybox
+            </summary>
+            <param name="c">Das Kameraobjekt um Ausrichtung im Raum zu ermitteln.</param>
+        </member>
+        <member name="P:GL3DLab.Skybox.DoDrawSkybox">
+            <summary>
+            Soll Skybox gezeichnet werden?
+            </summary>
+        </member>
+    </members>
+</doc>

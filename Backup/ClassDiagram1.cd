@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GL_Depth.Camera" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAgAAAAAAAABAYAE=</HashCode>
+      <FileName>Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Skybox" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAgAgAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Functions" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAACAAABAAAAAHAAAAAQAAABgCQAkAAgAEEAAEAA=</HashCode>
+      <FileName>Figures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Statix" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAABAACAAAAAAEAAAAAAABAAAEiAA=</HashCode>
+      <FileName>Figures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Kneul" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAgAAAAgAAAAAAAAAAAAAAAAAgACCAAgAAAQA=</HashCode>
+      <FileName>Figures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Sphere" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACBFAAAA=</HashCode>
+      <FileName>Figures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.ParticleField" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAACAIgIAAAAAAAAAAAAAABAAAAADAEAAAAA=</HashCode>
+      <FileName>Figures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Shot" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACACoAAggEABAABBAAAAEAAAAAAgAAAAAAADAg=</HashCode>
+      <FileName>Figures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.GraphicEngine" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAACMABAAAAAAAAAACAA=</HashCode>
+      <FileName>GraphicEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Mainform" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAgX1AhACCAABMARoGoAIACCEMIAiQGAQIAgDIAwAA=</HashCode>
+      <FileName>Mainform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Matrix" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>MatrixMath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.MatrixMath" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>MatrixMath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Point3" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAEcAEAAAAAAAAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>Point3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Vector3" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAQAAAAAAAAA=</HashCode>
+      <FileName>Point3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Square" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACkAQAAAAAAAAA=</HashCode>
+      <FileName>Point3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Program" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Properties.Resources" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GL_Depth.Properties.Settings" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="GL_Depth.ParticleForms" Collapsed="true">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAQAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>IntfFigures.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GL_Depth.initForms" Collapsed="true">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>IntfFigures.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GL_Depth.DotStyle" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAgAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>IntfFigures.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>
